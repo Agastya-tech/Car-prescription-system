@@ -130,3 +130,30 @@ void displayScoreBar(double score, double maxScore = 10.0) {
     for (int i = 0; i < 20; i++) cout << (i < filled ? "#" : "-");
     cout << "] " << fixed << setprecision(1) << score << "/" << maxScore << endl;
 }
+void printDivider(char ch = '=', int len = 60) {
+    cout << string(len, ch) << endl;
+}
+
+void printHeader(const string& title) {
+    printDivider();
+    int padding = (60 - title.size()) / 2;
+    cout << string(padding, ' ') << title << endl;
+    printDivider();
+}
+
+void printSubHeader(const string& title) {
+    printDivider('-', 60);
+    cout << "  " << title << endl;
+    printDivider('-', 60);
+}
+
+void printCarNumber(int num) {
+    cout << "\n  [Recommendation #" << num << "]" << endl;
+}
+
+void displayScoreBar(double score, double maxScore = 10.0) {
+    int filled = (int)((score / maxScore) * 20);
+    cout << "  Match Score : [";
+    for (int i = 0; i < 20; i++) cout << (i < filled ? "#" : "-");
+    cout << "] " << fixed << setprecision(1) << score << "/" << maxScore << endl;
+}
