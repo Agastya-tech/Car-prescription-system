@@ -1,9 +1,9 @@
-#ifndef CAR_H
-#define CAR_H
+#pragma once
 
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iomanip>
 using namespace std;
 
 class Car {
@@ -27,7 +27,6 @@ public:
           usageType(usage), transmission(trans), year(yr) {}
 
     virtual ~Car() {}
-
 
     virtual void displayDetails() const = 0;
     virtual string getCategoryDescription() const = 0;
@@ -57,6 +56,51 @@ public:
         cout << "  Usage       : " << usageType << endl;
         cout << "  Transmission: " << transmission << endl;
     }
-};
 
-#endif
+    // Version 2 - Display only basic identity (bool parameter)
+    void displayBasicInfo(bool shortVersion) const {
+        if (shortVersion) {
+            cout << "  " << brand << " " << model
+                 << " (" << year << ") - Rs. "
+                 << price << " Lakhs - "
+                 << fuelType << " - "
+                 << category << endl;
+        } else {
+            displayBasicInfo();
+        }
+    }
+
+    void displayBasicInfo(const string& label) const {
+        cout << "\n  --- " << label << " ---" << endl;
+        cout << "  " << brand << " " << model << endl;
+        cout << "  Price    : Rs. " << fixed << setprecision(2) << price << " Lakhs" << endl;
+        cout << "  Fuel     : " << fuelType << endl;
+        cout << "  Mileage  : " << mileage << " km/l" << endl;
+        cout << "  Seating  : " << seatingCapacity << " persons" << endl;
+    }
+
+    bool operator<(const Car& other) const {
+        return this->price < other.price;
+    }
+
+    bool operator>(const Car& other) const {
+        return this->price > other.price;
+    }
+
+    bool operator==(const Car& other) const {
+        return (this->brand == other.brand && this->model == other.model);
+    }
+
+    bool operator!=(const Car& other) const {
+        return !(this->brand == other.brand && this->model == other.model);
+    }
+
+    friend ostream& operator<<(ostream& os, const Car& car) {
+        os << car.brand << " " << car.model
+           << " | Rs. " << car.price << " Lakhs"
+           << " | " << car.fuelType
+           << " | " << car.category
+           << " | " << car.mileage << " km/l";
+        return os;
+    }
+};
