@@ -28,7 +28,7 @@ The system currently holds a database of **35 real Indian car models** across fo
 - 🔍 Personalized car recommendations based on user preferences
 - 📂 Browse cars by category (Hatchback, Sedan, SUV, MUV)
 - ⚖️ Compare any two cars side by side
-- 📊 View database statistics (average price, mileage, category breakdown)
+- 📊 View database statistics ( price, fule type , category breakdown)
 - ✅ Robust input validation and exception handling
 
 ---
@@ -49,9 +49,9 @@ The system currently holds a database of **35 real Indian car models** across fo
 ```
 CarPrescriptionSystem/
 ├── car.h                     # Abstract base class with core attributes
-├── car.cpp                # Derived classes: Hatchback, Sedan, SUV, MUV
-├── database.h             # File handling and car data storage
-├── database.cpp    # Scoring logic and recommendation engine
-├── engine.cpp
-├── engine.h
+├── car.cpp                   # Derived classes: Hatchback, Sedan, SUV, MUV
+├── database.h                # File handling and car data storage
+├── database.cpp              # Scoring logic and recommendation engine
+├── engine.cpp                #Implements recommendation logic
+├── engine.h                  #Declares the `RecommendationEngine` class
 └── README.md
