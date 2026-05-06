@@ -8,9 +8,9 @@ A decision-based car recommendation system built in **C++** that helps users ide
 
 | Name   | Contribution |
 |--------|-------------|
-| Neerav  | System flow design and decision-making logic |
-| Agastya | Core C++ functionalities, file handling, and data processing |
-| Arnav |refined the user interface, tested the program, and ensured
+| Agastya  | System flow design and decision-making logic |
+| Arnav | Core C++ functionalities, file handling, and data processing |
+| Neerav |refined the user interface, tested the program, and ensured
 clarity, consistency, and usability in the system's output |
 
 ---
@@ -48,10 +48,10 @@ The system currently holds a database of **35 real Indian car models** across fo
 
 ```
 CarPrescriptionSystem/
-├── main.cpp                  # Main program, UI, menus, exception handling
-├── Car.h                     # Abstract base class with core attributes
-├── CarTypes.h                # Derived classes: Hatchback, Sedan, SUV, MUV
-├── Utils.h                   # Templates, exceptions, UI helper functions
-├── CarDatabase.h             # File handling and car data storage
-├── RecommendationEngine.h    # Scoring logic and recommendation engine
+├── car.h                     # Abstract base class with core attributes
+├── car.cpp                # Derived classes: Hatchback, Sedan, SUV, MUV
+├── database.h             # File handling and car data storage
+├── database.cpp    # Scoring logic and recommendation engine
+├── engine.cpp
+├── engine.h
 └── README.md
